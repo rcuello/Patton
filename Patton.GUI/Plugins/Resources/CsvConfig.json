@@ -1,0 +1,500 @@
+{
+  "separator": ";",
+  "trimWhiteSpace": true,
+  "ignoreBlankLines": true,
+  "detail": {
+    "fileName":"detail",
+    "rowKey": "{{LineaPosicion.Factura}}",
+
+    "columnMapping": [
+      {
+        "property": "LineaPosicion.Factura",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "0"
+        }
+      },
+      {
+        "property": "LineaPosicion.NumeroPosicion",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "1"
+        }
+      },
+      {
+        "property": "LineaPosicion.PedidoAsociado",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "2"
+        }
+      },
+      {
+        "property": "LineaPosicion.CodigoMaterial",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "3"
+        }
+      },
+      {
+        "property": "LineaPosicion.DenominacionMaterial",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "4"
+        }
+      },
+      {
+        "property": "LineaPosicion.CantidadAcreditada",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "5"
+        }
+      },
+      {
+        "property": "LineaPosicion.UnidadMedida",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "6"
+        }
+      },
+      {
+        "property": "LineaPosicion.PrecioUnitario",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "7"
+        }
+      },
+      {
+        "property": "LineaPosicion.CodigoImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "8"
+        }
+      },
+      {
+        "property": "LineaPosicion.ValorBaseImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "9"
+        }
+      },
+      {
+        "property": "LineaPosicion.SubtotalLinea",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "10"
+        }
+      },
+      {
+        "property": "LineaPosicion.PorcentajeDescuento",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "11"
+        }
+      },
+      {
+        "property": "LineaPosicion.ValorDescuento",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "12"
+        }
+      },
+      {
+        "property": "LineaPosicion.PorcentajeImpuestoVentas",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "13"
+        }
+      },
+      {
+        "property": "LineaPosicion.ValorImpuestoVentas",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "14"
+        }
+      }
+
+
+    ]
+  },
+  "header": {
+    "fileName": "header",
+    "rowKey": "{{NotaCreditoEmitida.DatosCabecera.NumeroNotaCredito}}",
+    "columnMapping": [
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.FechaNotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "0"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.HoraNotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "1"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.NumeroNotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "2"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.ClaseNotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "3"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.SociedadNotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "4"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.Referencia",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "5"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.NumeroFacturaAsociada",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "6"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.DatosCabecera.Observaciones01NotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "7"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.TipoID",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "8"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.NumeroID",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "9"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.RazonSocial",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "10"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.NombreRegistrado",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "11"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.DireccionPostal",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "12"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.Departamento",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "13"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.Ciudad",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "14"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.Pais",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "15"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.TipoPersoneria",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "16"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.TipoRegimen",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "17"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.ContactoCliente.Nombre",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "18"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.ContactoCliente.Area",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "19"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.ContactoCliente.Cargo",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "20"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.ContactoCliente.Telefono",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "21"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionCliente.ContactoCliente.Email",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "22"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionImpuestos.LineaImpuesto.CodigoImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "23"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionImpuestos.LineaImpuesto.DescripcionImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "24"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionImpuestos.LineaImpuesto.MonedaImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "25"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionImpuestos.LineaImpuesto.BaseImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "26"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionImpuestos.LineaImpuesto.PorcentajeImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "27"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionImpuestos.LineaImpuesto.ValorImpuesto",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "28"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionRetencion.LineaRetencion.CodigoRetencion",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "29"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionRetencion.LineaRetencion.DescripcionRetencion",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "30"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionRetencion.LineaRetencion.MonedaRetencion",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "31"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionRetencion.LineaRetencion.BaseRetencion",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "32"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionRetencion.LineaRetencion.PorcentajeRetencion",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "33"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionRetencion.LineaRetencion.ValorRetencion",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "34"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionResumen.MonedaResumen",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "35"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionResumen.TotalBaseNotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "36"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionResumen.TotalImpuestos",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "37"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionResumen.TotalRetenciones",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "38"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.InformacionResumen.TotalGeneralNotaCredito",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "39"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.NumerationExtension.ApprobationNumber",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "40"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.NumerationExtension.ApprobationPeriod.ApprobationStartingDate",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "41"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.NumerationExtension.ApprobationPeriod.ApprobationEndingDate",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "42"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.NumerationExtension.StartingAt",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "43"
+        }
+      },
+      {
+        "property": "NotaCreditoEmitida.NumerationExtension.EndingAt",
+        "type": "string",
+        "valueResolver": {
+          "type": "index",
+          "value": "44"
+        }
+      }
+    ]
+  }
+}

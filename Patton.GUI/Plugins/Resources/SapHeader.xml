@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<NotaCreditoEmitida>
+  <DatosCabecera>
+    <FechaNotaCredito>2016-12-12</FechaNotaCredito>
+    <HoraNotaCredito>12:59:59</HoraNotaCredito>
+    <NumeroNotaCredito>0090000023</NumeroNotaCredito>
+    <ClaseNotaCredito>S1</ClaseNotaCredito>
+    <SociedadNotaCredito>1000</SociedadNotaCredito>
+    <Referencia>200800400</Referencia>
+    <NumeroFacturaAsociada>4700003263</NumeroFacturaAsociada>
+    <Observaciones01NotaCredito></Observaciones01NotaCredito>
+  </DatosCabecera>
+  <InformacionCliente>
+    <TipoID>31</TipoID>
+    <NumeroID>0000008917800428</NumeroID>
+    <RazonSocial>MUNICIPIO DE CERRO DE SAN ANTONIO</RazonSocial>
+    <NombreRegistrado>MUNICIPIO DE CERRO DE SAN ANTONIO</NombreRegistrado>
+    <DireccionPostal>CALLE 4 CRA 1 ESQ PALACIO MUNICIPAL</DireccionPostal>
+    <Departamento>MAGDALENA</Departamento>
+    <Ciudad>CERRO SAN ANTONIO</Ciudad>
+    <Pais>CO</Pais>
+    <TipoPersoneria>2</TipoPersoneria>
+    <TipoRegimen>2</TipoRegimen>
+    <ContactoCliente>
+        <Nombre>Omar Perez</Nombre>
+        <Area>Compras</Area>
+        <Cargo>Coordinador de Compras</Cargo>
+        <Telefono>(1)2851000</Telefono>
+        <Email>operez@tecnologiadelfuturo.com.co</Email>
+    </ContactoCliente>
+  </InformacionCliente> 
+  <PosicionesDocumento>
+    <LineaPosicion>
+      <NumeroPosicion>000010</NumeroPosicion>
+      <PedidoAsociado></PedidoAsociado>
+      <CodigoMaterial>FT301</CodigoMaterial>
+      <DenominacionMaterial>Fosyga Vigencia Corriente</DenominacionMaterial>
+      <CantidadAcreditada>1</CantidadAcreditada>
+      <UnidadMedida>AU</UnidadMedida>
+      <PrecioUnitario>3111148.00</PrecioUnitario>
+      <ValorBaseImpuesto>3111148.00</ValorBaseImpuesto>
+	  <SubtotalLinea>3111148.00</SubtotalLinea>
+      <PorcentajeDescuento>0.00</PorcentajeDescuento>
+      <ValorDescuento>0.00</ValorDescuento>
+      <PorcentajeImpuestoVentas>0.00</PorcentajeImpuestoVentas>
+      <ValorImpuestoVentas>0.00</ValorImpuestoVentas>
+    </LineaPosicion>
+    <LineaPosicion>
+      <NumeroPosicion>000020</NumeroPosicion>
+      <PedidoAsociado></PedidoAsociado>
+      <CodigoMaterial>FT302</CodigoMaterial>
+      <DenominacionMaterial>Fosyga Vigencia Futura</DenominacionMaterial>
+      <CantidadAcreditada>1</CantidadAcreditada>
+      <UnidadMedida>AU</UnidadMedida>
+      <PrecioUnitario>802013.00</PrecioUnitario>
+      <ValorBaseImpuesto>802013.00</ValorBaseImpuesto>
+	  <SubtotalLinea>802013.00</SubtotalLinea>
+      <PorcentajeDescuento>0.00</PorcentajeDescuento>
+      <ValorDescuento>0.00</ValorDescuento>
+      <PorcentajeImpuestoVentas>0.00</PorcentajeImpuestoVentas>
+      <ValorImpuestoVentas>0.00</ValorImpuestoVentas>
+    </LineaPosicion>
+  </PosicionesDocumento>  
+  <InformacionImpuestos>
+    <LineaImpuesto>
+        <CodigoImpuesto>01</CodigoImpuesto>
+        <DescripcionImpuesto>VALOR TOTAL DE IVA</DescripcionImpuesto>
+        <MonedaImpuesto>COP</MonedaImpuesto>
+        <BaseImpuesto>0.00</BaseImpuesto>
+        <PorcentajeImpuesto>0.00</PorcentajeImpuesto>
+        <ValorImpuesto>0.47</ValorImpuesto>
+    </LineaImpuesto>
+  </InformacionImpuestos>
+  <InformacionRetencion>
+    <LineaRetencion>
+        <CodigoRetencion>0A</CodigoRetencion>
+        <DescripcionRetencion>RETENCION FUENTE HONORARIOS</DescripcionRetencion>
+        <MonedaRetencion>COP</MonedaRetencion>
+        <BaseRetencion>0.00</BaseRetencion>
+        <PorcentajeRetencion>0.00</PorcentajeRetencion>
+        <ValorRetencion>0.00</ValorRetencion>
+    </LineaRetencion>
+  </InformacionRetencion>  
+  <InformacionResumen>
+    <MonedaResumen>COP</MonedaResumen>
+    <TotalBaseNotaCredito>3913161.00</TotalBaseNotaCredito>
+    <TotalImpuestos>0.00</TotalImpuestos>
+    <TotalRetenciones>0.00</TotalRetenciones>
+    <TotalGeneralNotaCredito>3913161.00</TotalGeneralNotaCredito>
+  </InformacionResumen>
+  <NumerationExtension>
+    <ApprobationNumber>20161026000002</ApprobationNumber>
+    <ApprobationPeriod>
+      <ApprobationStartingDate>2010-01-01</ApprobationStartingDate>
+      <ApprobationEndingDate>2016-12-31</ApprobationEndingDate>
+    </ApprobationPeriod>
+    <Prefix></Prefix>
+    <StartingAt>1800000000</StartingAt>
+    <EndingAt>2899999999</EndingAt>
+  </NumerationExtension> 
+</NotaCreditoEmitida>

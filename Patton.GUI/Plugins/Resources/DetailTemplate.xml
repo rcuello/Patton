@@ -1,0 +1,16 @@
+<LineaPosicion>
+  <NumeroPosicion>{{LineaPosicion.NumeroPosicion}}</NumeroPosicion>
+  <PedidoAsociado>{{LineaPosicion.PedidoAsociado}}</PedidoAsociado>
+  <CodigoMaterial>{{LineaPosicion.CodigoMaterial}}</CodigoMaterial>
+  <DenominacionMaterial>{{LineaPosicion.DenominacionMaterial}}</DenominacionMaterial>
+  <CantidadAcreditada>{{LineaPosicion.CantidadAcreditada}}</CantidadAcreditada>
+  <UnidadMedida>{{LineaPosicion.UnidadMedida}}</UnidadMedida>
+  <PrecioUnitario>{{LineaPosicion.PrecioUnitario}}</PrecioUnitario>
+  <ValorBaseImpuesto>{{LineaPosicion.CodigoImpuesto}}</ValorBaseImpuesto>
+  <ValorBaseImpuesto>{{LineaPosicion.ValorBaseImpuesto}}</ValorBaseImpuesto>
+  <SubtotalLinea>{{LineaPosicion.SubtotalLinea}}</SubtotalLinea>
+  <PorcentajeDescuento>{{LineaPosicion.PorcentajeDescuento}}</PorcentajeDescuento>
+  <ValorDescuento>{{LineaPosicion.ValorDescuento}}</ValorDescuento>
+  <PorcentajeImpuestoVentas>{{LineaPosicion.PorcentajeImpuestoVentas}}</PorcentajeImpuestoVentas>
+  <ValorImpuestoVentas>{{LineaPosicion.ValorImpuestoVentas}}</ValorImpuestoVentas>
+</LineaPosicion>

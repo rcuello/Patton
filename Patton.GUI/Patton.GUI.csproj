@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{58D98425-D687-4E18-B502-5C332DD81D1D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Patton.GUI</RootNamespace>
+    <AssemblyName>Patton.GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Core\1Dev\Lib\ExternalNuGet\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialog\DlgAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DlgAbout.Designer.cs">
+      <DependentUpon>DlgAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\DlgAttachment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DlgAttachment.Designer.cs">
+      <DependentUpon>DlgAttachment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\DlgVariable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DlgVariable.Designer.cs">
+      <DependentUpon>DlgVariable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\DlgHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DlgHeader.Designer.cs">
+      <DependentUpon>DlgHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\DlgWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DlgWait.Designer.cs">
+      <DependentUpon>DlgWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\ModalLoadingUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\ModalLoadingUI.Designer.cs">
+      <DependentUpon>ModalLoadingUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\RichTextbox_Method_Extensions.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1_Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Plugins\FrmCsvGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugins\FrmCsvGen.Designer.cs">
+      <DependentUpon>FrmCsvGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\FrmXmlToCsv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugins\FrmXmlToCsv.Designer.cs">
+      <DependentUpon>FrmXmlToCsv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialog\DlgAbout.resx">
+      <DependentUpon>DlgAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\DlgAttachment.resx">
+      <DependentUpon>DlgAttachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\DlgVariable.resx">
+      <DependentUpon>DlgVariable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\DlgHeader.resx">
+      <DependentUpon>DlgHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\DlgWait.resx">
+      <DependentUpon>DlgWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\ModalLoadingUI.resx">
+      <DependentUpon>ModalLoadingUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugins\FrmCsvGen.resx">
+      <DependentUpon>FrmCsvGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugins\FrmXmlToCsv.resx">
+      <DependentUpon>FrmXmlToCsv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="ConfigFiles\Plantilla-Post %28Devco%29.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFiles\Plantilla-Post %28Local%29.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFiles\Plantilla-Put %28Devco%29.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigFiles\Plantilla-Put %28Local%29.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Plugins\Resources\CsvConfig.json" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Postman.Core\Postman.Core.csproj">
+      <Project>{afa4e0e5-484d-4ad3-a58f-288f6622aeac}</Project>
+      <Name>Postman.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brown.u3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Plugins\Resources\DetailTemplate.xml" />
+    <Content Include="Plugins\Resources\HeaderTemplate.xml" />
+    <Content Include="Plugins\Resources\SapDetail.xml" />
+    <Content Include="Plugins\Resources\SapHeader.xml" />
+    <Content Include="Plugins\Resources\Transformation.xslt" />
+    <Content Include="Plugins\Resources\xsltNCSAP.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>IF "$(ConfigurationName)"=="Release" Powershell.exe -NonInteractive -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%25GO_TOOLS_BASEDIR%25\Scripts\Dev\VS-ILMerge.ps1" -SourceDir "$(TargetDir)\" -Source "$(TargetFileName)" -Target "Merged\$(TargetFileName)" -IncludeAllAssemblies 1</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

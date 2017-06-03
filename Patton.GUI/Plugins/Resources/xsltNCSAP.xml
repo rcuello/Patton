@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+	<xsl:output method="xml" encoding="utf-8" indent="yes"/>
+	<xsl:template match="/">
+		<fe:CreditNote
+			xmlns:fe="http://www.dian.gov.co/contratos/facturaelectronica/v1"
+			xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+			xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+			xmlns:clm54217="urn:un:unece:uncefact:codelist:specification:54217:2001"
+			xmlns:clm66411="urn:un:unece:uncefact:codelist:specification:66411:2001"
+			xmlns:clmIANAMIMEMediaType="urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003"
+			xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+			xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+			xmlns:sts="http://www.dian.gov.co/contratos/facturaelectronica/v1/Structures"
+			xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dian.gov.co/contratos/facturaelectronica/v1 ../xsd/DIAN_UBL.xsd urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2 ../../ubl2/common/UnqualifiedDataTypeSchemaModule-2.0.xsd urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2 ../../ubl2/common/UBL-QualifiedDatatypes-2.0.xsd">
+			<xsl:apply-templates select="NotaCreditoEmitida/DatosCabecera">
+				<xsl:with-param name="monedaFactura" select="NotaCreditoEmitida/InformacionResumen/MonedaResumen" />
+			</xsl:apply-templates>
+			<xsl:apply-templates select="NotaCreditoEmitida/FacturaAsociada"/>
+			<xsl:apply-templates select="NotaCreditoEmitida/InformacionCliente"/>
+            <xsl:apply-templates select="NotaCreditoEmitida/InformacionImpuestos">
+        		    <xsl:with-param name="monedaFactura" select="NotaCreditoEmitida/DatosCabecera/MonedaNotaCredito" />
+            </xsl:apply-templates>
+            <xsl:apply-templates select="NotaCreditoEmitida/InformacionRetencion">
+    		    <xsl:with-param name="monedaFactura" select="NotaCreditoEmitida/DatosCabecera/MonedaNotaCredito" />
+            </xsl:apply-templates>
+			<xsl:apply-templates select="NotaCreditoEmitida/InformacionResumen">
+				<xsl:with-param name="monedaFactura" select="NotaCreditoEmitida/DatosCabecera/MonedaNotaCredito" />
+			</xsl:apply-templates>
+            <xsl:apply-templates select="NotaCreditoEmitida/PosicionesDocumento/LineaPosicion">
+                <xsl:with-param name="monedaFactura" select="NotaCreditoEmitida/DatosCabecera/MonedaNotaCredito" />
+            </xsl:apply-templates> 
+         </fe:CreditNote>
+	</xsl:template>
+	
+	<xsl:template match="DatosCabecera"
+		xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+		<xsl:param name="monedaFactura"/>
+			<cbc:UBLVersionID>UBL 2.0</cbc:UBLVersionID>
+			<cbc:CustomizationID schemeDataURI="http://www.dian.gov.co/face/xsdList.html"
+schemeURI="http://www.dian.gov.co/face/xsd/DIAN_UBL.xsd">DIAN v1.0</cbc:CustomizationID>
+			<cbc:ProfileID>DIAN 1.0</cbc:ProfileID>
+			<cbc:ID>
+				<xsl:value-of select="NumeroNotaCredito"/>
+			</cbc:ID>
+			<cbc:IssueDate>
+				<xsl:value-of select="FechaNotaCredito"/>
+			</cbc:IssueDate>
+			<cbc:IssueTime>
+    		    <xsl:value-of select="HoraNotaCredito"/>   
+			</cbc:IssueTime>
+			<cbc:Note>
+				<xsl:value-of select="Observaciones01NotaCredito"/>
+			</cbc:Note>
+			<cbc:DocumentCurrencyCode>
+				<xsl:value-of select="$monedaFactura"/>
+			</cbc:DocumentCurrencyCode>
+	</xsl:template>
+   
+	<xsl:template match="FacturaAsociada" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+		xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+		 <cac:DiscrepancyResponse>
+			<cbc:ReferenceID>
+				<xsl:value-of select="NumeroFactura"/>
+			</cbc:ReferenceID>
+			<cbc:ResponseCode>
+				<xsl:value-of select="TipoNotaCredito"/>
+			</cbc:ResponseCode>
+		</cac:DiscrepancyResponse>
+		<cac:BillingReference>
+		  <cac:InvoiceDocumentReference>
+			 <cbc:ID>
+				<xsl:value-of select="NumeroFactura"/>
+			 </cbc:ID>
+			 <cbc:UUID>
+				<xsl:value-of select="UUIDFactura"/>
+			 </cbc:UUID>
+			 <cbc:IssueDate>
+				<xsl:value-of select="FechaFactura"/>
+			 </cbc:IssueDate>
+		  </cac:InvoiceDocumentReference>
+		</cac:BillingReference>
+	</xsl:template>
+	
+	<xsl:template match="InformacionCliente" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+		xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:fe="http://www.dian.gov.co/contratos/facturaelectronica/v1">
+		
+		  <fe:AccountingCustomerParty>
+			  <cbc:AdditionalAccountID>
+					<xsl:value-of select='TipoPersoneria' />
+			  </cbc:AdditionalAccountID>
+			  <fe:Party>
+				 <cac:PartyIdentification>
+					<cbc:ID schemeAgencyID="195" schemeAgencyName="CO, DIAN (Direccion de Impuestos y Aduanas Nacionales)">
+					<xsl:attribute name="schemeID">
+						<xsl:value-of select="TipoID" />
+					</xsl:attribute>
+					<xsl:value-of select="NumeroID"/>
+					</cbc:ID>
+				 </cac:PartyIdentification>
+				 <cac:PartyName>
+					<cbc:Name>
+						<xsl:value-of select="RazonSocial" />
+					</cbc:Name>
+				 </cac:PartyName>
+				 <fe:PhysicalLocation>
+					<fe:Address>
+					   <cbc:Department>
+						<xsl:value-of select="Departamento" />
+					   </cbc:Department>
+					   <cbc:CitySubdivisionName/>
+					   <cbc:CityName>
+						<xsl:value-of select="Ciudad" />
+					   </cbc:CityName>
+					   <cac:AddressLine>
+						  <cbc:Line>
+							<xsl:value-of select="DireccionPostal" />
+						  </cbc:Line>
+					   </cac:AddressLine>
+					   <cac:Country>
+						  <cbc:IdentificationCode>
+							<xsl:value-of select="Pais" />
+						  </cbc:IdentificationCode>
+					   </cac:Country>
+					</fe:Address>
+		        </fe:PhysicalLocation>
+				 <fe:PartyTaxScheme>
+					<cbc:TaxLevelCode>
+						<xsl:value-of select="TipoRegimen" />
+					</cbc:TaxLevelCode>
+                    <cac:TaxScheme />
+				 </fe:PartyTaxScheme>
+                  <xsl:if test="TipoPersoneria = '2'">
+    			   <fe:Person>
+					 <cbc:FirstName>
+					   <xsl:value-of select="ContactoCliente/Nombres1" />
+					 </cbc:FirstName>
+					 <cbc:FamilyName>
+                        <xsl:value-of select="ContactoCliente/Apellidos" />
+                     </cbc:FamilyName>
+					<cbc:MiddleName>
+                        <xsl:value-of select="ContactoCliente/Nombres2" />
+                    </cbc:MiddleName>
+					</fe:Person>
+				  </xsl:if>
+			  </fe:Party>
+			</fe:AccountingCustomerParty>
+	</xsl:template>
+	
+	<xsl:template match="InformacionResumen" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+		xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:fe="http://www.dian.gov.co/contratos/facturaelectronica/v1">	
+		<xsl:param name="monedaFactura"/>
+		<fe:LegalMonetaryTotal>		  
+			<cbc:LineExtensionAmount>
+			  <xsl:attribute name="currencyID">
+        		<xsl:value-of select="$monedaFactura"/>
+			  </xsl:attribute>			  
+			  <xsl:value-of select="TotalBrutoNotaCredito"/>	  
+			</cbc:LineExtensionAmount>
+			<cbc:TaxExclusiveAmount>
+			  <xsl:attribute name="currencyID">
+        		<xsl:value-of select="$monedaFactura"/>
+			  </xsl:attribute>			  
+			  <xsl:value-of select="TotalBaseNotaCredito"/>
+			</cbc:TaxExclusiveAmount>
+			<cbc:PayableAmount currencyID="COP">
+			  <xsl:attribute name="currencyID">
+        		<xsl:value-of select="$monedaFactura" />
+			  </xsl:attribute>			  
+			  <xsl:value-of select="TotalGeneralNotaCredito" />
+			</cbc:PayableAmount>			
+		</fe:LegalMonetaryTotal>
+	</xsl:template>
+
+<!--Inicio Impuestos-->
+ <xsl:key name="tax" match="LineaImpuesto" use="CodigoImpuesto" />
+ 
+ <xsl:template match="InformacionImpuestos">
+ <xsl:param name="monedaFactura"/>
+    <xsl:apply-templates select="LineaImpuesto[generate-id(.)=generate-id(key('tax',CodigoImpuesto)[1])]">
+    	<xsl:with-param name="monedaFactura" select="$monedaFactura" />
+    </xsl:apply-templates> 
+ </xsl:template>
+ 
+ <xsl:template match="LineaImpuesto" xmlns:fe="http://www.dian.gov.co/contratos/facturaelectronica/v1" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:clm54217="urn:un:unece:uncefact:codelist:specification:54217:2001" xmlns:clm66411="urn:un:unece:uncefact:codelist:specification:66411:2001" xmlns:clmIANAMIMEMediaType="urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:sts="http://www.dian.gov.co/contratos/facturaelectronica/v1/Structures" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dian.gov.co/contratos/facturaelectronica/v1 ../xsd/DIAN_UBL.xsd urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2 ../../ubl2/common/UnqualifiedDataTypeSchemaModule-2.0.xsd urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2 ../../ubl2/common/UBL-QualifiedDatatypes-2.0.xsd">
+ <xsl:param name="monedaFactura"/>
+    <fe:TaxTotal>
+      <cbc:TaxAmount>
+		<xsl:attribute name="currencyID">
+        		<xsl:value-of select='$monedaFactura' />
+        </xsl:attribute>
+        <xsl:value-of select="format-number(sum(key('tax', CodigoImpuesto)/ValorImpuesto), '0.00')" />
+      </cbc:TaxAmount>
+      <cbc:TaxEvidenceIndicator>false</cbc:TaxEvidenceIndicator>
+
+      <xsl:for-each select="key('tax', CodigoImpuesto)">
+        <fe:TaxSubtotal>
+          <cbc:TaxableAmount>
+			<xsl:attribute name="currencyID">
+        		<xsl:value-of select='$monedaFactura' />
+			</xsl:attribute>
+            <xsl:value-of select="BaseImpuesto" />
+          </cbc:TaxableAmount>
+          <cbc:TaxAmount>
+			<xsl:attribute name="currencyID">
+        		<xsl:value-of select='$monedaFactura' />
+			</xsl:attribute>
+            <xsl:value-of select="ValorImpuesto" />
+          </cbc:TaxAmount>
+          <cbc:Percent>
+            <xsl:value-of select="PorcentajeImpuesto" />
+          </cbc:Percent>
+          <cac:TaxCategory>
+            <cac:TaxScheme>
+              <cbc:ID>
+                <xsl:value-of select="CodigoImpuesto" />
+              </cbc:ID>
+            </cac:TaxScheme>
+          </cac:TaxCategory>
+        </fe:TaxSubtotal>
+      </xsl:for-each>
+      
+    </fe:TaxTotal>
+  </xsl:template>
+  <!--Fin Impuestos--> 
+  <!--Inicio Retenciones-->
+  <xsl:key name="taxt" match="LineaRetencion" use="CodigoRetencion" />
+ 
+  <xsl:template match="InformacionRetencion">
+    <xsl:param name="monedaFactura"/>
+     <xsl:apply-templates select="LineaRetencion[generate-id(.)=generate-id(key('taxt',CodigoRetencion)[1])]">
+	 <xsl:with-param name="monedaFactura" select="$monedaFactura" />
+    </xsl:apply-templates> 
+ </xsl:template>
+ 
+  <xsl:template match="LineaRetencion" xmlns:fe="http://www.dian.gov.co/contratos/facturaelectronica/v1" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:clm54217="urn:un:unece:uncefact:codelist:specification:54217:2001" xmlns:clm66411="urn:un:unece:uncefact:codelist:specification:66411:2001" xmlns:clmIANAMIMEMediaType="urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:sts="http://www.dian.gov.co/contratos/facturaelectronica/v1/Structures" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dian.gov.co/contratos/facturaelectronica/v1 ../xsd/DIAN_UBL.xsd urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2 ../../ubl2/common/UnqualifiedDataTypeSchemaModule-2.0.xsd urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2 ../../ubl2/common/UBL-QualifiedDatatypes-2.0.xsd">
+	<xsl:param name="monedaFactura"/>
+    <fe:TaxTotal>
+      <cbc:TaxAmount>
+		<xsl:attribute name="currencyID">
+        		<xsl:value-of select='$monedaFactura' />
+        </xsl:attribute>
+        <xsl:value-of select="format-number(sum(key('taxt', CodigoRetencion)/ValorRetencion), '0.00')" />
+      </cbc:TaxAmount>
+      <cbc:TaxEvidenceIndicator>true</cbc:TaxEvidenceIndicator>
+
+      <xsl:for-each select="key('taxt', CodigoRetencion)">
+        <fe:TaxSubtotal>
+          <cbc:TaxableAmount>
+			<xsl:attribute name="currencyID">
+        		<xsl:value-of select='$monedaFactura' />
+			</xsl:attribute>
+            <xsl:value-of select="BaseRetencion" />
+          </cbc:TaxableAmount>
+          <cbc:TaxAmount>
+			<xsl:attribute name="currencyID">
+        		<xsl:value-of select='$monedaFactura' />
+			</xsl:attribute>
+            <xsl:value-of select="ValorRetencion" />
+          </cbc:TaxAmount>
+          <cbc:Percent>
+            <xsl:value-of select="PorcentajeRetencion" />
+          </cbc:Percent>
+          <cac:TaxCategory>
+            <cac:TaxScheme>
+              <cbc:ID>
+                <xsl:value-of select="CodigoRetencion" />
+              </cbc:ID>
+            </cac:TaxScheme>
+          </cac:TaxCategory>
+        </fe:TaxSubtotal>
+      </xsl:for-each>
+      
+    </fe:TaxTotal>
+  </xsl:template>
+  <!--Fin Retenciones-->
+   <!--Inicio Lineas Nota Crédito-->
+  <xsl:template match="LineaPosicion" xmlns:fe="http://www.dian.gov.co/contratos/facturaelectronica/v1"  xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:clm54217="urn:un:unece:uncefact:codelist:specification:54217:2001" xmlns:clm66411="urn:un:unece:uncefact:codelist:specification:66411:2001" xmlns:clmIANAMIMEMediaType="urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:sts="http://www.dian.gov.co/contratos/facturaelectronica/v1/Structures" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dian.gov.co/contratos/facturaelectronica/v1 ../xsd/DIAN_UBL.xsd urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2 ../../ubl2/common/UnqualifiedDataTypeSchemaModule-2.0.xsd urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2 ../../ubl2/common/UBL-QualifiedDatatypes-2.0.xs">
+      <xsl:param name="monedaFactura"/>
+      <cac:CreditNoteLine>
+          <cbc:ID>
+            <xsl:value-of select="NumeroPosicion"/>
+          </cbc:ID>
+          <cbc:UUID>
+            <xsl:value-of select="FacturaAsociada/UUIDFactura"/>
+          </cbc:UUID>
+          <cbc:Note>
+    		<xsl:value-of select="ObservacionLineaNotaCredito"/>
+		  </cbc:Note>
+          <cbc:LineExtensionAmount>
+              <xsl:attribute name="currencyID">
+        				<xsl:value-of select="$monedaFactura" />
+        	  </xsl:attribute>
+		      <xsl:value-of select="SubtotalLinea"/>
+	      </cbc:LineExtensionAmount>
+          <cac:Item>
+             <cbc:Description>
+        		<xsl:value-of select="DenominacionMaterial"/>
+    		 </cbc:Description>
+          </cac:Item>
+          <cac:Price>
+             <cbc:PriceAmount>
+            	 <xsl:attribute name="currencyID">
+        				<xsl:value-of select="$monedaFactura" />
+        		</xsl:attribute>
+    			<xsl:value-of select="PrecioUnitario"/>
+    		 </cbc:PriceAmount>
+          </cac:Price>
+      </cac:CreditNoteLine>
+  </xsl:template> 
+  <!--Fin Lineas Nota Crédito-->
+</xsl:stylesheet>

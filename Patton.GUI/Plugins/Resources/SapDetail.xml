@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<NotaCreditoEmitida>
+  <PosicionesDocumento>
+    <LineaPosicion>
+      <NumeroPosicion>000010</NumeroPosicion>
+      <PedidoAsociado></PedidoAsociado>
+      <CodigoMaterial>FT301</CodigoMaterial>
+      <DenominacionMaterial>Fosyga Vigencia Corriente</DenominacionMaterial>
+      <CantidadAcreditada>1</CantidadAcreditada>
+      <UnidadMedida>AU</UnidadMedida>
+      <PrecioUnitario>3111148.00</PrecioUnitario>
+      <ValorBaseImpuesto>3111148.00</ValorBaseImpuesto>
+	  <SubtotalLinea>3111148.00</SubtotalLinea>
+      <PorcentajeDescuento>0.00</PorcentajeDescuento>
+      <ValorDescuento>0.00</ValorDescuento>
+      <PorcentajeImpuestoVentas>0.00</PorcentajeImpuestoVentas>
+      <ValorImpuestoVentas>0.00</ValorImpuestoVentas>
+    </LineaPosicion>
+    <LineaPosicion>
+      <NumeroPosicion>000020</NumeroPosicion>
+      <PedidoAsociado></PedidoAsociado>
+      <CodigoMaterial>FT302</CodigoMaterial>
+      <DenominacionMaterial>Fosyga Vigencia Futura</DenominacionMaterial>
+      <CantidadAcreditada>1</CantidadAcreditada>
+      <UnidadMedida>AU</UnidadMedida>
+      <PrecioUnitario>802013.00</PrecioUnitario>
+      <ValorBaseImpuesto>802013.00</ValorBaseImpuesto>
+	  <SubtotalLinea>802013.00</SubtotalLinea>
+      <PorcentajeDescuento>0.00</PorcentajeDescuento>
+      <ValorDescuento>0.00</ValorDescuento>
+      <PorcentajeImpuestoVentas>0.00</PorcentajeImpuestoVentas>
+      <ValorImpuestoVentas>0.00</ValorImpuestoVentas>
+    </LineaPosicion>
+  </PosicionesDocumento>  
+</NotaCreditoEmitida>
