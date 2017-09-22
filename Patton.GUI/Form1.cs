@@ -390,7 +390,8 @@ namespace WinPostman
         }
         private IRestRequest CreateRequest(String uri, RestSharp.Method method, string body, bool useXmlSerializer, List<Header> headers, List<Attachment> attachments)
         {
-            var request = new RestRequest(uri, method);
+            var parsedUri = this.ParseBody(uri);
+            var request = new RestRequest(parsedUri, method);
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Origin", "chrome-extension://aicmkgpgakddgnaphhhpliifpcfhicfo");
             request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
